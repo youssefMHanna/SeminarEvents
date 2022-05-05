@@ -1,0 +1,60 @@
+1- intialize Project josn file
+    npm init -y
+2- create app.js file and MVC Folders
+3- In app.js file
+    a- create express server
+    b- create logger MW
+    c- create NOT FOUND MW
+    d- create error MW
+
+all MW will send JSON (statless serevr)
+
+4- create department router  
+    Routers: departmentRouter.js
+    Controllers: departmentController.js
+    All routes respond with JSON
+
+    then add departmentRouter to your app.js file
+
+5- Manage http methods data (GET,POST,PUT,DELETE)
+   A- GET    /departments?name=eman  QueryString
+             /departments/eman       URLParamaters
+   B- POST,PUT,DELETE
+             /departments?name=eman  QueryString
+             /departments/eman       URLParamaters
+                                     http BODY  (body-parser)
+
+                                     
+6- Add parameters Validations Using express-validator  
+validation will be added to routers file
+
+7- install mongoose package to start dealing with DataBase
+    A- app.js file connect to your DB server
+    B- Create your models in Model Folder
+    C- manage crud operations in your Controller file
+
+8- manage authentication and authorization using 
+JWT token (for statless server)
+authenitication : who are U?  login??
+authorization : access , reject
+
+1- statless server (token);  JWT
+
+client      -->login   ->sucess     server(token->send response)
+            <---------token------------
+            
+httpheader   -->/students  put token
+            -->/students  get token
+
+2- views , render html  (sessions,cookies)
+
+
+
+
+
+
+
+
+
+
+
