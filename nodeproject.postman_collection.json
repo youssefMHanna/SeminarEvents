@@ -1,0 +1,333 @@
+{
+	"info": {
+		"_postman_id": "81995350-ed34-485f-acea-61b62c0e0910",
+		"name": "nodeproject",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create student",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"sam\",\n    \"email\": \"sam@iti.com\",\n    \"password\": \"aya\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:7013/students",
+					"host": [
+						"localhost"
+					],
+					"port": "7013",
+					"path": [
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "instructor youssef login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"you@iti.com\",\n    \"password\": \"you\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:7013/login",
+					"host": [
+						"localhost"
+					],
+					"port": "7013",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "samy login Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"sam2@iti.com\",\n    \"password\": \"aya\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:7013/login",
+					"host": [
+						"localhost"
+					],
+					"port": "7013",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"admin@admin.com\",\n    \"password\": \"admin\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:7013/login",
+					"host": [
+						"localhost"
+					],
+					"port": "7013",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create event",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOjEsImVtYWlsIjoiYWRtaW5AYWRtaW4uY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjUyNzYwNjc2LCJleHAiOjE2NTI4MDM4NzZ9.IS-xsnJ7ondxKHCMCNPx7PauFrUq9HNLCI_IzTRKPOo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\" : \"pd event\",\n    \"date\" : \"1/1/2001\",\n    \"assignedTo\" : [1],\n    \"acceptedBy\" : [],\n    \"rejectedBy\" : [],\n    \"attendees\" : []\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:7013/event",
+					"host": [
+						"localhost"
+					],
+					"port": "7013",
+					"path": [
+						"event"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create instructor",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOjEsImVtYWlsIjoiYWRtaW5AYWRtaW4uY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjUyNzYwNjc2LCJleHAiOjE2NTI4MDM4NzZ9.IS-xsnJ7ondxKHCMCNPx7PauFrUq9HNLCI_IzTRKPOo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"youssef\",\n    \"email\": \"you@iti.com\",\n    \"password\": \"you\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:7013/instructor",
+					"host": [
+						"localhost"
+					],
+					"port": "7013",
+					"path": [
+						"instructor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all events",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOjEsImVtYWlsIjoiYWRtaW5AYWRtaW4uY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjUyNzYwNjc2LCJleHAiOjE2NTI4MDM4NzZ9.IS-xsnJ7ondxKHCMCNPx7PauFrUq9HNLCI_IzTRKPOo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:7013/event",
+					"host": [
+						"localhost"
+					],
+					"port": "7013",
+					"path": [
+						"event"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all students",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOjEsImVtYWlsIjoiYWRtaW5AYWRtaW4uY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjUyNzYwNjc2LCJleHAiOjE2NTI4MDM4NzZ9.IS-xsnJ7ondxKHCMCNPx7PauFrUq9HNLCI_IzTRKPOo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:7013/students",
+					"host": [
+						"localhost"
+					],
+					"port": "7013",
+					"path": [
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all instructors",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOjEsImVtYWlsIjoiYWRtaW5AYWRtaW4uY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjUyNzYwNjc2LCJleHAiOjE2NTI4MDM4NzZ9.IS-xsnJ7ondxKHCMCNPx7PauFrUq9HNLCI_IzTRKPOo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:7013/instructor",
+					"host": [
+						"localhost"
+					],
+					"port": "7013",
+					"path": [
+						"instructor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "accept Invitation",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOjEsImVtYWlsIjoieW91QGl0aS5jb20iLCJyb2xlIjoiaW5zdHJ1Y3RvciIsImlhdCI6MTY1Mjc2MzUxNCwiZXhwIjoxNjUyODA2NzE0fQ.v0TohH1vhTZArtmI3Bh28bNFdP_8d0ZyPjLNPzXK2Fs",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\":1,\n    \"accept\":true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:7013/invitations",
+					"host": [
+						"localhost"
+					],
+					"port": "7013",
+					"path": [
+						"invitations"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
