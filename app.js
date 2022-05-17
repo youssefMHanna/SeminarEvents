@@ -7,6 +7,7 @@ const studentRouter=require("./Routers/studentsRouter");
 const authRouter=require("./Routers/authRoiuter");
 const instructorRouter=require("./Routers/InstructorRouter");
 const EventRouter = require("./Routers/EventRouter");
+const invitationsRouter = require("./Routers/instructorEventRouter");
 const server=express();
 // mongoose.connect("mongodb://localhost:27017/alexDB")
 mongoose.connect("mongodb://root:example@localhost:27017/alexDB?authSource=admin&readPreference=primary&ssl=false")
@@ -36,6 +37,7 @@ server.use(authRouter);
 server.use(instructorRouter);
 server.use(studentRouter);
 server.use(EventRouter);
+server.use(invitationsRouter);
 
 //Not Found MW
 server.use((request,response)=>{

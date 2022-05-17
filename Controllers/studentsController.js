@@ -30,7 +30,7 @@ module.exports.createStudent=(request,response,next)=>{
     }
 
     let student=new Student({
-        _id:request.body.id,
+        // _id:request.body.id,
         name:request.body.name,
         email:request.body.email,
         password:request.body.password

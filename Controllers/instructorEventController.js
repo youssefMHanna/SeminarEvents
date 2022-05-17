@@ -12,23 +12,37 @@ let validate = (request,role)=>{
 module.exports.AcceptDecline=(request,response,next)=>{
 
     validate(request,["instructor"]);
-    if (request.role=="instructor" && request.userId!=request.body.id)
-        throw new Error("Not Authorized");
-
-
-    let result=validationResult(request);
     
-    if(!result.isEmpty())
-    {
-        let message=result.array().reduce((current,error)=>current+error.msg+" "," ");
-        let error=new Error(message);
-        error.status=422;
-        throw error;  
-    }
-    if(request.body.accept)
-        this.acceptInvitation(request,response,next);
-    else
-        this.rejectInvitation(request,response,next);
+    //     throw new Error("Not Authorized");
+    
+    if (request.role=="instructor")
+        Event.findById(request.body.id).
+        then(
+            data=>
+            {
+                if(!data)
+                    throw new Error("event not exists");
+                if(data.assignedTo.includes(request.userId)) 
+                {
+                    if(request.body.accept)
+                        this.acceptInvitation(request,response,next);
+                    else
+                        this.rejectInvitation(request,response,next);
+                }
+                else 
+                    throw new Error("Not Authorized");
+            }
+        );
+    // let result=validationResult(request);
+    
+    // if(!result.isEmpty())
+    // {
+    //     let message=result.array().reduce((current,error)=>current+error.msg+" "," ");
+    //     let error=new Error(message);
+    //     error.status=422;
+    //     throw error;  
+    // }
+    
 };
 
 module.exports.viewInvitations=(request,response,next)=>{
@@ -55,10 +69,6 @@ module.exports.viewInvitations=(request,response,next)=>{
 
 module.exports.acceptInvitation=(request,response,next)=>{
     Event.findById(request.body.id).then(data=>{
-        if(!data)
-            throw new Error("event not exists");
-        if(data.assignedTo.includes(request.userId)) 
-        {
             if(data.acceptedBy.includes(request.userId))
                 throw new Error("Already Confirmed");
             if(data.rejectedBy.includes(request.userId))
@@ -69,20 +79,14 @@ module.exports.acceptInvitation=(request,response,next)=>{
             })
             .catch(error=>next(error));
         }
-        else 
-        
-            throw new Error("instructor not assigned to this Event");
-    }).catch(error=>next(error));
+    ).catch(error=>next(error));
 
 };
 
 module.exports.rejectInvitation=(request,response,next)=>{
 
     Event.findById(request.body.id).then(data=>{
-        if(!data)
-            throw new Error("event not exists");
-        if(data.assignedTo.includes(request.userId)) 
-        {
+        
             if(data.acceptedBy.includes(request.userId))
                 throw new Error("Already Confirmed");
             if(data.rejectedBy.includes(request.userId))
@@ -93,10 +97,7 @@ module.exports.rejectInvitation=(request,response,next)=>{
             })
             .catch(error=>next(error));
         }
-        else 
-        
-            throw new Error("instructor not assigned to this Event");
-    }).catch(error=>next(error));
+      ).catch(error=>next(error));
 
 };
 

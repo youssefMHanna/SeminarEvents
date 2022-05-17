@@ -27,7 +27,7 @@ module.exports.createInstructor=(request,response,next)=>{
     // }
     validate(request,["admin"]);
     let _Instructor=new Instructor({
-        _id:request.body.id,
+        // _id:request.body.id,
         name:request.body.name,
         email:request.body.email,
         password:request.body.password

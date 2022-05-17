@@ -32,7 +32,7 @@ module.exports.createEvent=(request,response,next)=>{
     }
 
     let eve=new Event({
-        _id : request.body.id,
+        // _id : request.body.id,
         name : request.body.name,
         date : request.body.date,
         assignedTo : request.body.assignedTo,

@@ -1,12 +1,12 @@
 const jwt=require('jsonwebtoken');
 const Student=require("./../Models/StudentModel");
 const Instructor = require("./../Models/InstructorModel");
-const Adnmin = require("./../Models/AdminModel");
+const Admin = require("./../Models/AdminModel");
 
 let validate = (request,response,schema,schemaName,nextSchema,next) => {
     schema.findOne({email:request.body.email,password:request.body.password}).
     then(data=>{
-        if(data == null)
+        if(!data)
         {
             nextSchema();
         }
@@ -24,9 +24,9 @@ let validate = (request,response,schema,schemaName,nextSchema,next) => {
 
 module.exports.login=(request,response,next)=>{
         let err = ()=> {throw new Error("Not Authenticated");};
-        let admin = () => {validate(request,response,Adnmin,"admin",next,next);};
-        let instructor = () =>{validate(request,response,Instructor,"instructor",admin);};
-        let student = () => {validate(request,response,Student,"student",instructor);};
+        let admin = () => {validate(request,response,Admin,"admin",err,next);};
+        let instructor = () =>{validate(request,response,Instructor,"instructor",admin,next);};
+        let student = () => {validate(request,response,Student,"student",instructor,next);};
         student();
     };
     

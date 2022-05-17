@@ -9,11 +9,11 @@ let AdminSchema=new mongoose.Schema({
 });
 
 //2- register  //collection , schma
-module.exports=mongoose.model("admins",AdminSchema)
+mongoose.model("admins",AdminSchema)
     .find({_id:1})
     .then(data=>
         {
-            if(!data)
+            if(!data.length)
             {
                 let admin = new mongoose.model("admins")({ 
                     _id:1,
@@ -25,6 +25,6 @@ module.exports=mongoose.model("admins",AdminSchema)
             }
         }
     );
-
+module.exports=mongoose.model("admins",AdminSchema);
 // mongoose.model("collection",schema);//setting
 // mongoose.model("collection");//getting
